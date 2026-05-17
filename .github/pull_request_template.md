@@ -1,45 +1,45 @@
-## Wat verandert er?
+## What changes?
 
-<!-- Geef hier een beschrijving van wat je hebt gedaan in de branch. -->
+<!-- Provide a description of what you did in the branch. -->
 
-Gerelateerd aan issue #8 <!--Aan welke issue is de PR gerelateerd? -->
+Related to issue #8 <!-- Which issue is the PR related to? -->
 
-## RAPPE principes test
+## RAPPE principles test
 
 ### Responsive
 
-- [ ] Test de layout op verschillende schermgroottes
-- [ ] Test de user preferences
+- [ ] Test the layout on different screen sizes
+- [ ] Test the user preferences
 
 ### Accessibility
 
-- [ ] Test de toegankelijkheid met een WCAG audit en handmatige test
-- [ ] Test de toegankelijkheid met het keyboard
+- [ ] Test accessibility with a WCAG audit and manual test
+- [ ] Test accessibility with the keyboard
 
 ### Performance
 
-- [ ] Test de performance met behulp van de Performance audit deeltaak
+- [ ] Test performance using the Performance audit sub-task
 
 ### Progressive Enhancement
 
-- [ ] Test de functionele laag
-- [ ] Test de Baseline CSS
-- [ ] Test de enhancements
+- [ ] Test the functional layer
+- [ ] Test the Baseline CSS
+- [ ] Test the enhancements
 
-## Overige testen
+## Other tests
 
 - [ ] User test
-- [ ] Screenreader test
+- [ ] Screen reader test
 - [ ] Browser test
 - [ ] Device test
 - [ ] HTML Validator
 
-<!-- Leg uit hoe je hebt getest, wat daarin naar voren is gekomen en hoe je het hebt opgelost. -->
+<!-- Explain how you tested, what came up during testing and how you resolved it. -->
 
 ## Images/Videos
 
-<!-- Voeg hier foto's en/of videos toe van wat je hebt gemaakt. -->
+<!-- Add photos and/or videos of what you have made here. -->
 
-## Hoe te reviewen
+## How to review
 
-<!-- Aanvullende vragen/opmerkingen voor de reviewer. -->
+<!-- Additional questions/comments for the reviewer. -->
