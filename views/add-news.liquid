@@ -1,6 +1,6 @@
 {% render 'partials/head.liquid', title: 'home' %}
 <main>
-  <section>
+  <section class="add-news-section layout">
     <h1 class="secondary-header">voeg nieuws toe</h1>
     <form method="POST" action="/nieuws-toevoegen">
       <label class="title">
@@ -30,7 +30,7 @@
         Artikel
         <textarea id="body" name="body"></textarea>
       </label>
-      <button class="send">verzenden</button>
+      <button class="send primary-button">verzenden</button>
     </form>
   </section>
 </main>
