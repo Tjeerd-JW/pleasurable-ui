@@ -400,6 +400,151 @@ header.nav-header {
   }
 }
 
+/* add news form */
+.add-news-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 4em;
+  padding-inline: 1em;
+  margin: 0;
+  background-color: var(--primary-300);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-block-start: 1em;
+    background-color: var(--triary-background-color);
+    padding: 1.5em;
+    border-radius: 1em;
+    width: 100%;
+
+    @media (min-width: 37em) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      max-width: 50em;
+
+      grid-template-areas:
+        "title author"
+        "description date"
+        "description status"
+        "article article"
+        "article article"
+        ". button"
+      ;
+
+      .title {
+        grid-area: title;
+      }
+
+      .description {
+        grid-area: description;
+      }
+
+      .date {
+        grid-area: date;
+      }
+
+      .article {
+        grid-area: article;
+      }
+
+      .send {
+        grid-area: button;
+        height: fit-content;
+        width: fit-content;
+        justify-self: end;
+        align-self: flex-end;
+      }
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+
+      input[type="text"],
+      input[type="date"],
+      textarea,
+      select {
+        border-style: solid;
+        padding: .9em;
+        border-radius: .5em;
+        margin: .5em 0 0;
+        border: 1px solid #a8afb8;
+      }
+
+      textarea {
+        height: 100%;
+      }
+    }
+  }
+}
+
+/* button styling */
+
+.primary-button {
+  background-color: var(--primary-800);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--default-radius);
+  color: var(--primary-100);
+  border: solid var(--space-2xs) var(--primary-800);
+  text-decoration: none;
+  cursor: pointer;
+  height: min-content;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: .2s ease;
+  }
+
+  &:hover {
+    background-color: var(--color-neutral-800);
+    color: var(--text-color);
+    scale: 1.05;
+  }
+
+  &:focus {
+    color: var(--text-color-secondary);
+    outline: var(--space-3xs) solid var(--primary-100);
+    /* turn the variable negative */
+    outline-offset: calc(var(--space-xs) * -1);
+    scale: 1.05;
+  }
+
+}
+
+.secondary-button {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--default-radius);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: solid var(--space-2xs) var(--primary-600);
+  text-decoration: none;
+  cursor: pointer;
+  place-content: center;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: .2s ease;
+  }
+
+  &:hover {
+    background-color: var(--primary-600);
+    color: var(--text-color-secondary);
+    scale: 1.05;
+  }
+
+  &:focus {
+    background-color: var(--primary-600);
+    color: var(--text-color-secondary);
+    outline: var(--space-2xs) solid var(--primary-100);
+    /* turn the variable negative */
+    outline-offset: calc(var(--space-xs) * -1);
+    scale: 1.05;
+  }
+}
+
+
 /* FAQ homepage */
 .faq-layout {
   .container {
