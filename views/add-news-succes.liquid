@@ -1,0 +1,94 @@
+{% render 'partials/head.liquid', title: 'home' %}
+<main>
+  <section>
+    <p class="success">
+      Je nieuws artikel is gepubliceerd. klik hier:
+      <a href="/nieuws"><img src="" alt="nieuws pagina"></a>
+    </p>
+  </section>
+  <section>
+    <h1 class="secondary-header">voeg nieuws toe</h1>
+    <form method="POST" action="/nieuws-toevoegen">
+      <label class="title">
+        Title
+        <input name="title" id="title" type="text">
+      </label>
+      <label class="description">
+        Beschrijving
+        <textarea id="description" name="description"></textarea>
+      </label>
+      <label class="author">
+        Auteur
+        <input id="author" name="author" type="text">
+      </label>
+      <label class="date">
+        Datum
+        <input id="date" name="date" type="date" required>
+      </label>
+      <label class="status">
+        Publicatie
+        <select id="status" name="status">
+          <option value="published">gepubliceerd</option>
+          <option value="draft">voorlopig versie</option>
+        </select>
+      </label>
+      <label class="article">
+        Artikel
+        <textarea id="body" name="body"></textarea>
+      </label>
+      <button class="send">verzenden</button>
+    </form>
+  </section>
+</main>
+
+<script type="module" defer>
+  const newsForm = document.querySelector('form');
+  const formButton = document.querySelector('form button');
+
+  // Als er op de submit button wordt geklikt ...
+  newsForm.addEventListener('submit', async function (event) {
+    // Voorkom de standaard submit van de browser
+    // Let op: hiermee overschrijven we de default Loading state van de browser...
+    event.preventDefault();
+
+    //Loading state tonen:
+    formButton.classList.add('loading');
+    formButton.textContent = 'loading...';
+
+    //formdata voorbereiden:
+    let formData = new FormData(newsForm);
+
+    // Data fetchen:
+    // Doe een fetch naar de server, net als hoe de browser dit normaal zou doen
+    // Gebruik daarvoor het action en method attribuut van het formulier
+    // Stuur de formulierelementen mee
+    const response = await fetch(newsForm.action, {
+      method: newsForm.method, //POST dus
+      body: new URLSearchParams(formData), // <<< Dit moet omdat server.js anders niet met de formulier data kan werken
+    });
+
+    // Data verwerken:
+    // Jouw server.js geeft data terug als het posten goed gaat
+    const responseData = await response.text();
+
+    // Normaal zou de browser die HTML parsen en weergeven.
+    // Maar omdat we dit nu in client-side JS doen moeten we dit zelf doen:
+    // Parse de nieuwe HTML en maak onderwater een nieuw Document Object Model aan
+    const parser = new DOMParser();
+    const responseDOM = parser.parseFromString(responseData, 'text/html');
+
+    // Loading state weghalen
+    // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
+    formButton.classList.remove('loading');
+    formButton.textContent = 'Save score';
+
+    if (response.ok) {
+      // Gebruik de URL van de redirect (of een hardcoded URL) om de browser te verplaatsen
+      window.location.href = '/nieuws-toevoegen-succes';
+    } else {
+      // Error handling
+      formButton.textContent = 'Fout bij opslaan';
+    }
+  });
+</script>
+{% render 'partials/footer.liquid' %}
