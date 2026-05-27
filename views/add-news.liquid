@@ -42,6 +42,7 @@
 <script type="module" defer>
   const newsForm = document.querySelector('form');
   const formButton = document.querySelector('form button');
+  const succesLink = document.querySelector('form p');
 
   // Als er op de submit button wordt geklikt ...
   newsForm.addEventListener('submit', async function (event) {
@@ -78,7 +79,8 @@
     // Loading state weghalen
     // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
     formButton.classList.remove('loading');
-    formButton.textContent = 'Save score';
+    formButton.textContent = 'Save news';
+    succesLink.classList.add('succes-animation');
 
     if (response.ok) {
       // Gebruik de URL van de redirect (of een hardcoded URL) om de browser te verplaatsen

@@ -400,27 +400,65 @@ header.nav-header {
   }
 }
 
+@keyframes succes-grow {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes succes-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
 /* add news form */
 .add-news-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-block: 4em;
-  padding-inline: 1em;
-  margin: 0;
+  padding-block: var(--space-3xl);
+  padding-inline: var(--space-md);
   background-color: var(--primary-300);
+
+  .succes-state {
+    background: black;
+    border-radius: 1em;
+    padding: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   form {
     display: flex;
     flex-direction: column;
-    gap: 2em;
-    margin-block-start: 1em;
+    gap: var(--space-xl);
+    margin-block-start: var(--space-md);
     background-color: var(--triary-background-color);
-    padding: 1.5em;
-    border-radius: 1em;
+    padding: var(--space-lg);
+    border-radius: var(--space-md);
     width: 100%;
 
-    @media (min-width: 37em) {
+    .succes {
+      align-self: center;
+      background-color: var(--primary-300);
+      border-radius: var(--default-radius);
+      width: stretch;
+      height: stretch;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (width >=850px) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(6, 1fr);
@@ -432,7 +470,7 @@ header.nav-header {
         "description status"
         "article article"
         "article article"
-        ". button"
+        "success button"
       ;
 
       .title {
@@ -451,12 +489,35 @@ header.nav-header {
         grid-area: article;
       }
 
+      .succes {
+        grid-area: success;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+        display: none;
+      }
+
+      .succes-animation {
+        display: flex;
+
+        @media (prefers-reduced-motion: no-preference) {
+          animation-name: succes-grow;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          animation-name: succes-fade;
+        }
+
+        animation-duration: .5s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-play-state: running;
+      }
+
       .send {
         grid-area: button;
-        height: fit-content;
-        width: fit-content;
         justify-self: end;
-        align-self: flex-end;
+        align-self: center;
       }
     }
 
@@ -469,10 +530,10 @@ header.nav-header {
       textarea,
       select {
         border-style: solid;
-        padding: .9em;
-        border-radius: .5em;
-        margin: .5em 0 0;
-        border: 1px solid #a8afb8;
+        padding: var(--space-md);
+        border-radius: var(--default-radius);
+        margin: var(--space-xs) 0 0;
+        border: var(--space-3xs) solid #a8afb8;
       }
 
       textarea {
