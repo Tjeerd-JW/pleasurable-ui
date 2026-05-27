@@ -38,7 +38,9 @@ De website heeft voor mobiele gebruikers een mooi hamburger slide menu. Gemaakt 
 
 bij de nieuws pagina wordt alle nieuws berichten in een grid met blokken te laten zien.
 
-![nieuws pagina grid](image.png)
+<img src="public/assets/images/newsgrid.png" height="250">
+
+deze blokken worden herbruikt in de home pagina.
 
 ## Installatie
 
@@ -61,6 +63,8 @@ Om dit project op te starten volg je deze stappen
 Read about our code conventions [here](./conventions.md).
 
 ## Bronnen
+
+https://ishadeed.com/article/range-syntax/
 
 ## Licentie
 
