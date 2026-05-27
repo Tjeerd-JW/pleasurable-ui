@@ -1,13 +1,11 @@
 {% render 'partials/head.liquid', title: 'home' %}
 <main>
-  <section>
-    <p class="success">
+  <section class="add-news-section layout">
+    <h1 class="secondary-header">voeg nieuws toe</h1>
+    <p class="succes-state">
       Je nieuws artikel is gepubliceerd.
       <a href="/nieuws" class="primary-button">klik hier</a>
     </p>
-  </section>
-  <section>
-    <h1 class="secondary-header">voeg nieuws toe</h1>
     <form method="POST" action="/nieuws-toevoegen">
       <label class="title">
         Title
@@ -80,7 +78,7 @@
     // Loading state weghalen
     // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
     formButton.classList.remove('loading');
-    formButton.textContent = 'Save score';
+    formButton.textContent = 'Succes';
 
     if (response.ok) {
       // Gebruik de URL van de redirect (of een hardcoded URL) om de browser te verplaatsen
