@@ -434,10 +434,13 @@ header.nav-header {
     border-radius: var(--default-radius);
     padding: var(--space-lg);
     color: var(--text-color-secondary);
-    width: 25%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    a {
+      margin-inline-start: var(--space-md);
+    }
   }
 
   form {
