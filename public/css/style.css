@@ -430,9 +430,11 @@ header.nav-header {
   background-color: var(--primary-300);
 
   .succes-state {
-    background: black;
-    border-radius: 1em;
-    padding: 4em;
+    background: var(--primary-900);
+    border-radius: var(--default-radius);
+    padding: var(--space-lg);
+    color: var(--text-color-secondary);
+    width: 25%;
     display: flex;
     justify-content: space-between;
     align-items: center;
