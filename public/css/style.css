@@ -735,7 +735,6 @@ footer.lowest-footer {
   background-color: var(--primary-700);
   color: var(--background-color);
   font-family: var(--font-body);
-  margin-top: var(--space-2xl);
 
   a {
     color: inherit;
