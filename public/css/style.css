@@ -403,10 +403,12 @@ header.nav-header {
 @keyframes succes-grow {
   from {
     width: 0;
+    color: transparent;
   }
 
   to {
     width: 100%;
+    color: inherit;
   }
 }
 
@@ -513,7 +515,7 @@ header.nav-header {
           animation-name: succes-fade;
         }
 
-        animation-duration: .5s;
+        animation-duration: .3s;
         animation-timing-function: ease-in-out;
         animation-fill-mode: forwards;
         animation-play-state: running;
