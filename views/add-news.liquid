@@ -30,7 +30,7 @@
         Artikel
         <textarea id="body" name="body"></textarea>
       </label>
-      <p class="success">
+      <p class="succes">
         Je nieuws artikel is gepubliceerd.
         <a href="/nieuws" class="primary-button">klik hier</a>
       </p>
@@ -79,16 +79,8 @@
     // Loading state weghalen
     // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
     formButton.classList.remove('loading');
-    formButton.textContent = 'Save news';
+    formButton.textContent = 'Succes';
     succesLink.classList.add('succes-animation');
-
-    if (response.ok) {
-      // Gebruik de URL van de redirect (of een hardcoded URL) om de browser te verplaatsen
-      window.location.href = '/nieuws-toevoegen-succes';
-    } else {
-      // Error handling
-      formButton.textContent = 'Fout bij opslaan';
-    }
   });
 </script>
 {% render 'partials/footer.liquid' %}

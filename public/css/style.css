@@ -458,6 +458,7 @@ header.nav-header {
       height: stretch;
       flex-direction: column;
       align-items: center;
+      display: none;
     }
 
     @media (width >=850px) {
@@ -472,7 +473,7 @@ header.nav-header {
         "description status"
         "article article"
         "article article"
-        "success button"
+        "succes button"
       ;
 
       .title {
@@ -492,11 +493,10 @@ header.nav-header {
       }
 
       .succes {
-        grid-area: success;
+        grid-area: succes;
         align-items: center;
         justify-content: space-around;
         flex-direction: row;
-        display: none;
       }
 
       .succes-animation {
