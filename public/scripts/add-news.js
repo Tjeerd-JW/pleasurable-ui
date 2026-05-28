@@ -10,7 +10,6 @@ newsForm.addEventListener("submit", async function (event) {
 
   //Loading state tonen:
   formButton.classList.add("loading");
-  formButton.textContent = "laden...";
 
   //formdata voorbereiden:
   let formData = new FormData(newsForm);
@@ -37,6 +36,5 @@ newsForm.addEventListener("submit", async function (event) {
   // Loading state weghalen
   // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
   formButton.classList.remove("loading");
-  formButton.textContent = "Succes";
   succesLink.classList.add("succes-animation");
 });
