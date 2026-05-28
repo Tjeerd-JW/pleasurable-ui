@@ -42,6 +42,17 @@ De ingevulde formuliergegevens worden via een POST route in de Express server ve
 
 Daarnaast is extra aandacht besteed aan accessibility en usability. Het formulier bevat duidelijke labels, zichtbare focus states en verplichte velden zodat het formulier goed bruikbaar blijft voor toetsenbord- en screenreadergebruikers.
 
+### Animaties
+
+#### Knoppen
+Om de gebruiker visueel te laten zien wat er na een klik gebeurt, zijn knopanimaties toegevoegd voor een laad- en successstaat. Tijdens het verzenden krijgt de knop een loading state en na verzenden in de back-end wordt de button omgezet naar een succes staat button.
+
+De animatie bestaat uit JavaScript en CSS. In JavaScript krijgt de knop tijdelijk een extra class waardoor de visuele styling verandert. Deze styling is opegmaakt in CSS.
+
+#### Pagina laden
+
+Bij het navigeren tussen pagina's is een animatie dat bestaat uit het logo van ADConnect toegevoegd. Zodra een link wordt aangeklikt, verschijnt de loading overlay die laat zien dat de volgende pagina wordt geladen.
+
 ### Hamburgermenu
 
 De website heeft voor mobiele gebruikers een mooi hamburger slide menu. Gemaakt met een popover en geanimeerd met css en javascript. De hamburger menu kan gesloten worden door erbuiten te klikken of door op escape te klikken. Als de gebruiker JS aan heeft dan krijgen ze mooie animaties bij het openen en sluiten van het menu.
