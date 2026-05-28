@@ -545,6 +545,7 @@ header.nav-header {
 
       textarea {
         height: 100%;
+        resize: vertical;
       }
     }
   }
