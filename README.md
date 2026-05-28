@@ -45,11 +45,16 @@ Daarnaast is extra aandacht besteed aan accessibility en usability. Het formulie
 ### Animaties
 
 #### Knoppen
+
+https://github.com/user-attachments/assets/4f385202-128d-4933-a10f-dc36668adaad
+
 Om de gebruiker visueel te laten zien wat er na een klik gebeurt, zijn knopanimaties toegevoegd voor een laad- en successstaat. Tijdens het verzenden krijgt de knop een loading state en na verzenden in de back-end wordt de button omgezet naar een succes staat button.
 
 De animatie bestaat uit JavaScript en CSS. In JavaScript krijgt de knop tijdelijk een extra class waardoor de visuele styling verandert. Deze styling is opegmaakt in CSS.
 
 #### Pagina laden
+
+https://github.com/user-attachments/assets/951e58f5-901f-40e2-b710-c2ace34f58ff
 
 Bij het navigeren tussen pagina's is een animatie dat bestaat uit het logo van ADConnect toegevoegd. Zodra een link wordt aangeklikt, verschijnt de loading overlay die laat zien dat de volgende pagina wordt geladen.
 
