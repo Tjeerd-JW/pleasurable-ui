@@ -32,7 +32,12 @@ De website heeft voor mobiele gebruikers een mooi hamburger slide menu. Gemaakt 
 
 <img src="public/assets/images/burgermenu.gif" height="250">
 
+### Hero banner
+De hero banner is gebouwd als een herbruikbare Liquid partial die op meerdere pagina's gebruikt kan worden met verschillende parameters. De Hero banner is dus een klein stukje code wat op meerdere plekken wordt gebruikt. De partial accepteert een titel, beschrijving, twee optionele knoppen en een optionele afbeelding. De afbeelding kan via een parameter links of rechts geplaatst worden. De partial maakt gebruik van het bestaande image.liquid partial voor responsive images met AVIF en WebP formaten. 
+
 ### Back to top
+
+De back to top button is gebouwd als een herbruikbare Liquid partial die onderaan elke pagina geladen wordt. De knop is standaard verborgen en verschijnt pas na het scrollen van 300 pixels. De knop is gebouwd volgens Progressive Enhancement, dus het werkt zonder JavaScript, waar de knop altijd zichtbaar als een gewone link naar de top van de pagina. Met JavaScript verschijnt en verdwijnt de knop op basis van de scroll positie. Het scrollt smooth naar boven als de gebruiker er op drukt. Dit alles om het gebruik van de website pleasurable te maken. De animatie respecteert de prefers-reduced-motion instelling van de gebruiker.
 
 ### News
 
