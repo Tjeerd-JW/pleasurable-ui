@@ -4,8 +4,7 @@
     <h1 class="secondary-header">voeg nieuws toe</h1>
     <form method="POST" action="/nieuws-toevoegen">
       <label class="title">
-        Title
-        <input name="title" id="title" type="text">
+        Titel
       </label>
       <label class="description">
         Beschrijving
@@ -52,7 +51,7 @@
 
     //Loading state tonen:
     formButton.classList.add('loading');
-    formButton.textContent = 'loading...';
+    formButton.textContent = 'laden...';
 
     //formdata voorbereiden:
     let formData = new FormData(newsForm);
