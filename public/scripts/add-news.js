@@ -1,5 +1,4 @@
 const newsForm = document.querySelector("form");
-const formButton = document.querySelector("form button");
 const succesLink = document.querySelector("form p");
 
 // Als er op de submit button wordt geklikt ...
@@ -7,9 +6,6 @@ newsForm.addEventListener("submit", async function (event) {
   // Voorkom de standaard submit van de browser
   // Let op: hiermee overschrijven we de default Loading state van de browser...
   event.preventDefault();
-
-  //Loading state tonen:
-  formButton.classList.add("loading");
 
   //formdata voorbereiden:
   let formData = new FormData(newsForm);
@@ -33,8 +29,6 @@ newsForm.addEventListener("submit", async function (event) {
   const parser = new DOMParser();
   const responseDOM = parser.parseFromString(responseData, "text/html");
 
-  // Loading state weghalen
-  // Nu kan je waarschijnlijk de Loading state vervangen door een Success state
-  formButton.classList.remove("loading");
+  // add success state
   succesLink.classList.add("succes-animation");
 });
