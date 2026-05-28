@@ -78,6 +78,8 @@ app.get("/nieuws-toevoegen-succes", async function name(request, response) {
 });
 
 app.post("/nieuws-toevoegen", async function (request, response) {
+  const newsUrl = await fetch(baseURL + "news");
+
   await fetch(newsURL, {
     method: "POST",
     body: JSON.stringify({
