@@ -8,16 +8,16 @@
     </p>
     <form method="POST" action="/nieuws-toevoegen">
       <label class="title">
-        Title
-        <input name="title" id="title" type="text">
+        Titel
+        <input name="title" id="title" type="text" required>
       </label>
       <label class="description">
         Beschrijving
-        <textarea id="description" name="description"></textarea>
+        <textarea id="description" name="description" required></textarea>
       </label>
       <label class="author">
         Auteur
-        <input id="author" name="author" type="text">
+        <input id="author" name="author" type="text" required>
       </label>
       <label class="date">
         Datum
@@ -27,14 +27,18 @@
         Publicatie
         <select id="status" name="status">
           <option value="published">gepubliceerd</option>
-          <option value="draft">voorlopig versie</option>
+          <option value="draft">concept</option>
         </select>
       </label>
       <label class="article">
         Artikel
-        <textarea id="body" name="body"></textarea>
+        <textarea id="body" name="body" required></textarea>
       </label>
-      <button class="send primary-button">verzenden</button>
+      <p class="succes">
+        Je nieuws artikel is gepubliceerd.
+        <a href="/nieuws" class="primary-button">klik hier</a>
+      </p>
+      {% render 'partials/form-button.liquid', style: 'send primary-button' %}
     </form>
   </section>
 </main>
