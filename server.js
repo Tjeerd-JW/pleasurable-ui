@@ -9,7 +9,7 @@ import {Liquid} from "liquidjs";
 const app = express();
 
 // Maak werken met data uit formulieren iets prettiger
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({extended: true}));
 
 // Gebruik de map 'public' voor statische bestanden
 app.use(express.static("public"));
@@ -25,13 +25,15 @@ app.set("views", "./views");
 app.set("port", process.env.PORT || 8000);
 
 // Start Express op, gebruik daarbij het zojuist ingestelde poortnummer op
-app.listen(app.get('port'), function () {
-  console.log(`Project draait via http://localhost:${app.get('port')}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`)
-})
+app.listen(app.get("port"), function () {
+  console.log(
+    `Project draait via http://localhost:${app.get("port")}/\n\nSucces deze sprint. En maak mooie dingen! 🙂`,
+  );
+});
 
-const baseURL = 'https://fdnd-agency.directus.app/items/adconnect_'
+const baseURL = "https://fdnd-agency.directus.app/items/adconnect_";
 
-app.get('/', async function (request, response) {
+app.get("/", async function (request, response) {
   const params = {
     fields: "title,description,date",
     sort: "-date_created",
@@ -43,29 +45,58 @@ app.get('/', async function (request, response) {
 
   const newsResponseJson = await newsResponse.json();
 
-  response.render('index.liquid', {
-    news: newsResponseJson.data
-  })
-})
+  response.render("index.liquid", {
+    news: newsResponseJson.data,
+  });
+});
 
-app.get('/talent-awards', async function (request, response) {
-  const awardsResponse = await fetch(baseURL + 'nominations')
-  const awardsResponseJSON = await awardsResponse.json()
+app.get("/talent-awards", async function (request, response) {
+  const awardsResponse = await fetch(baseURL + "nominations");
+  const awardsResponseJSON = await awardsResponse.json();
 
-  response.render('talent-awards.liquid', {
+  response.render("talent-awards.liquid", {
     nominations: awardsResponseJSON.data,
-    path: request.path
-  })
-})
+    path: request.path,
+  });
+});
 
-app.get('/lado', async function (request, response) {
-  const apiResponse = await fetch(baseURL + 'lados')
-  const apiResponseJSON = await apiResponse.json()
+app.get("/lado", async function (request, response) {
+  const apiResponse = await fetch(baseURL + "lados");
+  const apiResponseJSON = await apiResponse.json();
 
-  response.render('lado.liquid', {
-    lados: apiResponseJSON.data
-  })
-})
+  response.render("lado.liquid", {
+    lados: apiResponseJSON.data,
+  });
+});
+
+app.get("/nieuws-toevoegen", async function name(request, response) {
+  response.render("add-news.liquid");
+});
+
+app.get("/nieuws-toevoegen-succes", async function name(request, response) {
+  response.render("add-news-succes.liquid");
+});
+
+app.post("/nieuws-toevoegen", async function (request, response) {
+  const newsUrl = await fetch(baseURL + "news");
+
+  await fetch(newsUrl, {
+    method: "POST",
+    body: JSON.stringify({
+      description: request.body.description,
+      body: request.body.body,
+      status: request.body.status,
+      titel: request.body.title,
+      author: request.body.author,
+      date: request.body.date,
+    }),
+
+    headers: {
+      "Content-Type": "application/json;charset=UTF-8",
+    },
+  });
+  response.redirect(303, "/nieuws-toevoegen");
+});
 
 app.get("/nieuws", async function name(request, response) {
   const params = {
@@ -109,5 +140,5 @@ app.post('/contact', async function (request, response) {
 
 // 404 page this must always be at the bottom of the document
 app.use((request, response, next) => {
-  response.render('404.liquid')
-})
+  response.render("404.liquid");
+});

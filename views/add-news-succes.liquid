@@ -1,0 +1,45 @@
+{% render 'partials/head.liquid', title: 'home' %}
+<main>
+  <section class="add-news-section layout">
+    <h1 class="secondary-header">voeg nieuws toe</h1>
+    <p class="succes-state">
+      Je nieuws artikel is gepubliceerd.
+      <a href="/nieuws" class="secondary-button">klik hier</a>
+    </p>
+    <form method="POST" action="/nieuws-toevoegen">
+      <label class="title">
+        Titel
+        <input name="title" id="title" type="text" required>
+      </label>
+      <label class="description">
+        Beschrijving
+        <textarea id="description" name="description" required></textarea>
+      </label>
+      <label class="author">
+        Auteur
+        <input id="author" name="author" type="text" required>
+      </label>
+      <label class="date">
+        Datum
+        <input id="date" name="date" type="date" required>
+      </label>
+      <label class="status">
+        Publicatie
+        <select id="status" name="status">
+          <option value="published">gepubliceerd</option>
+          <option value="draft">concept</option>
+        </select>
+      </label>
+      <label class="article">
+        Artikel
+        <textarea id="body" name="body" required></textarea>
+      </label>
+      <p class="succes">
+        Je nieuws artikel is gepubliceerd.
+        <a href="/nieuws" class="primary-button">klik hier</a>
+      </p>
+      <button class="send primary-button">verzenden</button>
+    </form>
+  </section>
+</main>
+{% render 'partials/footer.liquid' %}

@@ -400,6 +400,220 @@ header.nav-header {
   }
 }
 
+@keyframes succes-grow {
+  from {
+    width: 0;
+    color: transparent;
+  }
+
+  to {
+    width: 100%;
+    color: inherit;
+  }
+}
+
+@keyframes succes-fade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100%;
+  }
+}
+
+/* add news form */
+.add-news-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: var(--space-3xl);
+  padding-inline: var(--space-md);
+  background-color: var(--primary-300);
+
+  .succes-state {
+    background: var(--primary-900);
+    border-radius: var(--default-radius);
+    padding: var(--space-lg);
+    color: var(--text-color-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      margin-inline-start: var(--space-md);
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    margin-block-start: var(--space-md);
+    background-color: var(--triary-background-color);
+    padding: var(--space-lg);
+    border-radius: var(--space-md);
+    width: 100%;
+
+    .succes {
+      align-self: center;
+      background-color: var(--primary-300);
+      border-radius: var(--default-radius);
+      width: stretch;
+      height: stretch;
+      flex-direction: column;
+      align-items: center;
+      display: none;
+    }
+
+    @media (width >=850px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(6, 1fr);
+      max-width: 50em;
+
+      grid-template-areas:
+        "title author"
+        "description date"
+        "description status"
+        "article article"
+        "article article"
+        "succes button"
+      ;
+
+      .title {
+        grid-area: title;
+      }
+
+      .description {
+        grid-area: description;
+      }
+
+      .date {
+        grid-area: date;
+      }
+
+      .article {
+        grid-area: article;
+      }
+
+      .succes {
+        grid-area: succes;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: row;
+      }
+
+      .succes-animation {
+        display: flex;
+
+        @media (prefers-reduced-motion: no-preference) {
+          animation-name: succes-grow;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          animation-name: succes-fade;
+        }
+
+        animation-duration: .3s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        animation-play-state: running;
+      }
+
+      .send {
+        grid-area: button;
+        justify-self: end;
+        align-self: center;
+      }
+    }
+
+    label {
+      display: flex;
+      flex-direction: column;
+
+      input[type="text"],
+      input[type="date"],
+      textarea,
+      select {
+        border-style: solid;
+        padding: var(--space-md);
+        border-radius: var(--default-radius);
+        margin: var(--space-xs) 0 0;
+        border: var(--space-3xs) solid #a8afb8;
+      }
+
+      textarea {
+        height: 100%;
+        resize: none;
+      }
+    }
+  }
+}
+
+/* button styling */
+
+.primary-button {
+  background-color: var(--primary-800);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--default-radius);
+  color: var(--primary-100);
+  border: solid var(--space-2xs) var(--primary-800);
+  text-decoration: none;
+  cursor: pointer;
+  height: min-content;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: .2s ease;
+  }
+
+  &:hover {
+    background-color: var(--color-neutral-800);
+    color: var(--text-color);
+    scale: 1.05;
+  }
+
+  &:focus {
+    color: var(--text-color-secondary);
+    outline: var(--space-3xs) solid var(--primary-100);
+    /* turn the variable negative */
+    outline-offset: calc(var(--space-xs) * -1);
+    scale: 1.05;
+  }
+
+}
+
+.secondary-button {
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--default-radius);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: solid var(--space-2xs) var(--primary-600);
+  text-decoration: none;
+  cursor: pointer;
+  place-content: center;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: .2s ease;
+  }
+
+  &:hover {
+    background-color: var(--primary-600);
+    color: var(--text-color-secondary);
+    scale: 1.05;
+  }
+
+  &:focus {
+    background-color: var(--primary-600);
+    color: var(--text-color-secondary);
+    outline: var(--space-2xs) solid var(--primary-100);
+    /* turn the variable negative */
+    outline-offset: calc(var(--space-xs) * -1);
+    scale: 1.05;
+  }
+}
+
+
 /* FAQ homepage */
 .faq-layout {
   .container {
@@ -590,7 +804,6 @@ footer.lowest-footer {
   background-color: var(--primary-700);
   color: var(--background-color);
   font-family: var(--font-body);
-  margin-top: var(--space-2xl);
 
   a {
     color: inherit;
