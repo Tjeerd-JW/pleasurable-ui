@@ -79,6 +79,8 @@ bij de nieuws pagina wordt alle nieuws berichten in een grid met blokken te late
 
 deze blokken worden herbruikt in de home pagina.
 
+### Detailpagina genomineerde
+
 Elke genomineerde heeft een eigen detailpagina, opgebouwd via een dynamische route (/talent-awards/:slug). De paginadata  zoals naam, opleiding, profielfoto en nominatietekst  wordt per request live opgehaald uit de Directus API op basis van de slug in de URL.
 Bovenaan de pagina staat een progressbalk die met een scroll-driven animation bijhoudt hoe ver de gebruiker door de pagina gescrold is, puur via CSS   ``` animation-timeline: scroll().   ``` Progressive enhancement is toegepast via   ``` @supports    ``, zodat de balk alleen zichtbaar is in browsers die deze techniek ondersteunen.
 
